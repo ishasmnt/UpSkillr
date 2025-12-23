@@ -60,7 +60,6 @@ This project demonstrates a modern **Learning Management System (LMS)** structur
 
 ## 📂 Project Folder Structure
 
-```
 
 UpSkillr/
 │
@@ -150,7 +149,7 @@ UpSkillr/
 ├── .gitignore                            # node_modules, .env, etc.
 └── README.md
 
-````
+
 
 ---
 
@@ -233,4 +232,5 @@ git push
 ````
 
 ---
+
 
