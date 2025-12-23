@@ -3,9 +3,9 @@
 ```md
 # UpSkillr – Online Learning and Skill Development Platform
 
-UpSkillr is a full-stack MERN-based online learning and skill development platform designed to enable instructor-led learning and self-paced upskilling. The platform allows instructors to create and manage courses, while learners can browse, enroll, and track their progress in real time.
+UpSkillr is a full-stack MERN-based online learning platform designed for **instructor-led skill development**. It allows instructors to create, manage, and update courses, lessons, assignments, videos, and notes. Learners can explore available courses, track their progress, complete lessons, submit assignments, and access study materials in real time.
 
-This project simulates a lightweight Learning Management System (LMS) with a focus on clean architecture, role-based access, scalability, and a modern user interface.
+This project demonstrates a modern **Learning Management System (LMS)** structure with a **clean architecture, Firebase Authentication, role-based access, and modular design**.
 
 ---
 
@@ -19,40 +19,42 @@ This project simulates a lightweight Learning Management System (LMS) with a foc
 
 ## 🎯 Project Objectives
 
-- Build a MERN-based learning platform with Instructor and Learner roles  
-- Implement secure authentication using Firebase Authentication  
-- Enable course creation, enrollment, and progress tracking  
-- Design a modular and scalable backend with RESTful APIs  
-- Follow industry-standard folder structure and GitHub practices  
+- Build a MERN-based platform with **Instructor** and **Learner** roles  
+- Implement **secure authentication using Firebase Authentication**  
+- Enable **course creation, editing, and deletion** in a single unified interface  
+- Add **lessons, videos, assignments, and notes** dynamically inside courses  
+- Allow learners to **enroll, track progress, submit assignments, and view notes**  
+- Maintain a **scalable, modular, and professional folder structure**  
+- Ensure industry-standard GitHub workflow and documentation  
 
 ---
 
 ## 🛠 Tech Stack
 
-### Frontend
-- React.js
-- CSS / Tailwind CSS (optional)
-- Axios
-- Firebase Authentication SDK
+**Frontend**
+- React.js  
+- CSS / Tailwind CSS (optional)  
+- Axios  
+- Firebase Authentication SDK  
 
-### Backend
-- Node.js
-- Express.js
-- MongoDB (Mongoose)
+**Backend**
+- Node.js  
+- Express.js  
+- MongoDB (Mongoose)  
 
-### Authentication
-- **Firebase Authentication**
-- Firebase Admin SDK for backend token verification
+**Authentication**
+- Firebase Authentication  
+- Firebase Admin SDK for backend token verification  
 
 ---
 
 ## 🔐 Authentication & Authorization
 
-- User authentication (Login / Register) is handled using **Firebase Authentication**
-- Firebase generates a secure ID token after login
-- The frontend sends this token with API requests
-- The backend verifies the token using Firebase Admin SDK
-- Role-based access control (Instructor / Learner) is implemented at the backend level
+- Users sign up / log in using **Firebase Authentication**  
+- Firebase generates a **secure ID token** for each user  
+- Frontend sends token in API requests  
+- Backend verifies token using **Firebase Admin SDK**  
+- **Role-based access** ensures only instructors can manage courses, while learners access their dashboard, assignments, and notes  
 
 ---
 
@@ -62,110 +64,128 @@ This project simulates a lightweight Learning Management System (LMS) with a foc
 
 UpSkillr/
 │
-├── frontend/                  # React frontend
+├── frontend/
 │   ├── public/
 │   │   └── index.html
 │   │
 │   ├── src/
-│   │   ├── assets/            # Images, icons, static assets
+│   │   ├── assets/            # Images, icons, and static resources
 │   │
 │   │   ├── components/        # Reusable UI components
-│   │   │   ├── Navbar.jsx     # Navigation bar
-│   │   │   ├── Footer.jsx     # Footer section
-│   │   │   ├── CourseCard.jsx # Course preview card
-│   │   │   └── ProgressBar.jsx# Progress visualization
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── Footer.jsx
+│   │   │   ├── CourseCard.jsx
+│   │   │   └── ProgressBar.jsx
 │   │
-│   │   ├── pages/             # Application pages
+│   │   ├── pages/
 │   │   │   ├── Auth/
-│   │   │   │   ├── Login.jsx      # Login page
-│   │   │   │   └── Register.jsx   # Registration page
-│   │   │
+│   │   │   │   ├── Login.jsx
+│   │   │   │   └── Register.jsx
+│   │   │   │
 │   │   │   ├── Instructor/
-│   │   │   │   ├── Dashboard.jsx     # Instructor dashboard
-│   │   │   │   ├── CreateCourse.jsx  # Create course
-│   │   │   │   └── EditCourse.jsx    # Edit course
-│   │   │   │    └── addAssignments.jsx#add assignments in course
-│   │   │  
+│   │   │   │   ├── Dashboard.jsx        # Overview of all courses, assignments, and notes
+│   │   │   │   ├── ManageCourse.jsx     # Create, edit, delete courses
+│   │   │   │   ├── AddModules.jsx       # Add lessons/videos inside a course
+│   │   │   │   ├── AddAssignments.jsx   # Add assignments to a specific course
+│   │   │   │   └── UploadNotes.jsx      # Upload notes / PDFs for learners
+│   │   │   │
 │   │   │   ├── Learner/
-│   │   │   │   ├── Dashboard.jsx     # Learner dashboard
-│   │   │   │   ├── CourseList.jsx    # Browse courses
-│   │   │   │   └── CoursePlayer.jsx  # Course content view
+│   │   │   │   ├── Dashboard.jsx        # Progress overview and course completion
+│   │   │   │   ├── CourseList.jsx       # Browse all available courses
+│   │   │   │   ├── MyCourses.jsx        # Enrolled courses view
+│   │   │   │   ├── CoursePlayer.jsx     # Complete lessons / watch videos
+│   │   │   │   ├── SubmitAssignment.jsx # Submit assignments assigned by instructor
+│   │   │   │   └── Notes.jsx            # View uploaded notes
+│   │   │   │
+│   │   │   └── Home.jsx                 # Landing page
 │   │   │
-│   │   │   └── Home.jsx           # Landing page
-│   │
-│   │   ├── services/               # API services
-│   │   │   ├── api.js              # Axios base config
-│   │   │   ├── authService.js      # Firebase auth helpers
-│   │   │   └── courseService.js    # Course APIs
-│   │
+│   │   ├── services/                    # API calls
+│   │   │   ├── api.js                   # Axios base config
+│   │   │   ├── authService.js           # Firebase authentication helpers
+│   │   │   ├── courseService.js         # Course, module, assignment APIs
+│   │   │   └── learnerService.js        # Learner-specific APIs
+│   │   │
 │   │   ├── context/
-│   │   │   └── AuthContext.jsx     # Global auth & role state
-│   │
+│   │   │   └── AuthContext.jsx          # Global auth & role state
+│   │   │
 │   │   ├── utils/
-│   │   │   └── ProtectedRoute.jsx  # Role-based routing
+│   │   │   └── ProtectedRoute.jsx      # Role-based routing
+│   │   │
+│   │   ├── App.jsx                      # Route configuration
+│   │   └── index.js                     # React entry point
 │   │
-│   │   ├── App.jsx                 # Route configuration
-│   │   └── index.js                # React entry point
-│
 │   └── package.json
 │
-├── backend/                       # Node.js backend
+├── backend/
 │   ├── config/
-│   │   ├── db.js                  # MongoDB connection
-│   │   └── firebase.js            # Firebase Admin SDK config
+│   │   ├── db.js                        # MongoDB connection
+│   │   └── firebase.js                  # Firebase Admin SDK configuration
 │   │
 │   ├── models/
-│   │   ├── User.js                # User schema (role-based)
-│   │   ├── Course.js              # Course schema
-│   │   ├── Lesson.js              # Lesson schema
-│   │   └── Enrollment.js          # Enrollment & progress schema
+│   │   ├── User.js                      # Users with roles
+│   │   ├── Course.js                    # Course schema
+│   │   ├── Lesson.js                    # Lessons / videos schema
+│   │   ├── Assignment.js                # Assignments schema
+│   │   └── Note.js                      # Notes schema
 │   │
 │   ├── controllers/
-│   │   ├── courseController.js    # Course logic
-│   │   └── enrollController.js    # Enrollment & progress logic
+│   │   ├── courseController.js          # Create, edit, delete, list courses
+│   │   ├── moduleController.js          # Add / edit lessons & videos
+│   │   ├── assignmentController.js      # Create / manage assignments
+│   │   └── notesController.js           # Upload and manage notes
 │   │
 │   ├── routes/
-│   │   ├── courseRoutes.js        # Course APIs
-│   │   └── enrollRoutes.js        # Enrollment APIs
+│   │   ├── courseRoutes.js
+│   │   ├── moduleRoutes.js
+│   │   ├── assignmentRoutes.js
+│   │   └── notesRoutes.js
 │   │
 │   ├── middleware/
-│   │   ├── firebaseAuth.js        # Firebase token verification
-│   │   └── roleMiddleware.js      # Instructor / Learner access
+│   │   ├── firebaseAuth.js              # Firebase token verification
+│   │   └── roleMiddleware.js            # Instructor / Learner access control
 │   │
-│   ├── server.js                  # Backend entry point
+│   ├── server.js                         # Backend entry point
 │   └── package.json
 │
-├── .gitignore                     # Ignored files (node_modules, env)
-└── README.md                      # Project documentation
+├── .gitignore                            # node_modules, .env, etc.
+└── README.md
 
 ````
 
 ---
 
-## 🔁 Application Flow
+## 🔁 Application Flow (Instructor + Learner)
 
-1. User registers or logs in using Firebase Authentication  
-2. Firebase generates a secure ID token  
-3. Token is sent with each API request  
-4. Backend verifies token using Firebase Admin SDK  
-5. Role-based access is applied  
-6. Instructor manages courses and lessons  
-7. Learner enrolls, completes lessons, and tracks progress  
+**Instructor**
+1. Access dashboard → view courses, assignments, and notes  
+2. Create a new course OR edit existing course  
+3. Inside a course:
+   - Add lessons/videos (modules)  
+   - Add assignments  
+   - Upload notes for learners  
+4. Track course updates  
+
+**Learner**
+1. Access dashboard → view progress and completed lessons  
+2. Browse course list → enroll in courses  
+3. Open enrolled courses → complete lessons/videos  
+4. Submit assignments  
+5. Access uploaded notes  
 
 ---
 
 ## 🚀 How to Run the Project
 
-### Backend Setup
-```bash
+### Backend
+```cmd
 cd backend
 npm install
 npm start
 ````
 
-### Frontend Setup
+### Frontend
 
-```bash
+```cmd
 cd frontend
 npm install
 npm start
@@ -175,38 +195,40 @@ npm start
 
 ## 📌 Git & Repository Notes
 
-* `node_modules` is ignored using `.gitignore`
-* `.env` files are not committed
-* Firebase service credentials are securely managed
-* Clean and meaningful commit history is maintained
+* `node_modules` is ignored via `.gitignore`
+* `.env` and Firebase credentials are secure and **not committed**
+* Follow clean commit messages: e.g.,
+
+  * `"Add frontend dashboard layout"`
+  * `"Integrate Firebase authentication"`
+  * `"Add course module API"`
 
 ---
 
 ## 🎯 Expected Outcomes
 
-* Functional LMS-style learning platform
-* Secure authentication using Firebase
+* Full-fledged LMS functionality
+* Firebase authentication and secure role-based access
+* Dynamic course creation/editing with lessons, assignments, and notes
+* Learner dashboard with progress tracking
 * Clean separation of frontend and backend
-* Scalable and modular project structure
-* Ready for real-world deployment and evaluation
 
 ---
 
 ## 👨‍💻 Conclusion
 
-UpSkillr demonstrates modern web development practices using the MERN stack combined with Firebase Authentication. The project emphasizes clean architecture, role-based access control, and real-world LMS functionality suitable for the EdTech industry.
+UpSkillr demonstrates **modern web development practices**, combining the MERN stack with Firebase Authentication.
+It emphasizes **modularity, scalability, role-based access, and real-world LMS functionality**, making it ready for evaluation, internship demonstration, or deployment.
 
 ````
 
 ---
 
-## ✅ FINAL STEP (IMPORTANT)
-
-After pasting this:
+✅ **Next Steps After Updating README:**
 
 ```cmd
 git add README.md
-git commit -m "Update README with Firebase authentication architecture"
+git commit -m "Update README with full features, Firebase auth, and detailed structure"
 git push
 ````
 
