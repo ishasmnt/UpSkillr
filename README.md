@@ -1,10 +1,4 @@
-Perfect 👍
-Below is a **fresh, clean, Firebase-based README.md** that you can **directly copy–paste** into your GitHub repo.
-It is **detailed, structured, evaluator-friendly**, and matches your **UpSkillr project exactly**.
 
----
-
-## ✅ COPY–PASTE THIS INTO `README.md`
 
 ```md
 # UpSkillr – Online Learning and Skill Development Platform
@@ -217,3 +211,4 @@ git push
 ````
 
 ---
+
