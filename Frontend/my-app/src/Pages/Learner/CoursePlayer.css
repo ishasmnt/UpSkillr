@@ -1,0 +1,8 @@
+
+.player-layout { display: grid; grid-template-columns: 1fr 300px; height: calc(100vh - 70px); }
+.video-section { padding: 2rem; background: #000; color: white; }
+.video-placeholder { aspect-ratio: 16/9; background: #1e293b; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 12px; }
+.lesson-sidebar { background: #fff; border-left: 1px solid #e2e8f0; padding: 1.5rem; overflow-y: auto; }
+.lesson-sidebar ul { list-style: none; margin-top: 1rem; }
+.lesson-sidebar li { padding: 1rem; border-bottom: 1px solid #f1f5f9; cursor: pointer; transition: 0.2s; }
+.lesson-sidebar li.active { background: #eef2ff; color: #4f46e5; font-weight: bold; }

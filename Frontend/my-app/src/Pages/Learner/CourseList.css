@@ -1,0 +1,100 @@
+/* Container and Page Layout */
+.course-list-page {
+    padding: 40px 10%;
+    background-color: #f8fafc;
+    min-height: 100vh;
+}
+
+/* Header & Search Section */
+.search-banner {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    border-radius: 24px;
+    color: white;
+    box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.2);
+}
+
+.search-banner h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    width: 100%;
+    max-width: 600px;
+    padding: 16px 24px;
+    border-radius: 50px;
+    border: none;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    outline: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-bar:focus {
+    transform: scale(1.02);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Grid Layout for Course Cards */
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* Helper class for empty states */
+.no-courses {
+    text-align: center;
+    grid-column: 1 / -1;
+    padding: 100px;
+    color: #64748b;
+}
+
+.no-courses h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* Category Filters (Optional addition) */
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    background: white;
+    color: #64748b;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: #4f46e5;
+    color: white;
+    border-color: #4f46e5;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .course-list-page {
+        padding: 20px 5%;
+    }
+    .search-banner {
+        padding: 40px 20px;
+    }
+    .search-banner h1 {
+        font-size: 1.8rem;
+    }
+}
